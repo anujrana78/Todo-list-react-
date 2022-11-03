@@ -1,0 +1,16 @@
+.item-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-radius: 20px;
+    background-color:bisque ;
+    padding: 20px;
+    margin:20px;
+
+}
+
+.btn-delete{
+width: 5%;
+background-color: rgb(184, 64, 64);
+}
