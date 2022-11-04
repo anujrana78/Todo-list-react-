@@ -8,22 +8,22 @@ import { useEffect, useState } from "react";
 function App() {
   
     //to show list from local storage
-    // const getLocalData = () => {
-    //  let list =  localStorage.getItem('item')
-    // console.log(list)
+    const getLocalData = () => {
+     let list =  localStorage.getItem('item')
+    console.log(list)
 
-    // if(list) {
-    //   return JSON.parse(localStorage.getItem('item'))
-    // } else {
-    //   return[]
-    // }
-    // }
+    if(list) {
+      return JSON.parse(localStorage.getItem('item'))
+    } else {
+      return[]
+    }
+    }
 
-    // getLocalData()
+    
 
   const [currentItem, setCurrentItem] = useState('');
   
-  const [itemList, setItemList] = useState([]);
+  const [itemList, setItemList] = useState(getLocalData());
 
   //to store the current item 
   const storeItem = (e) => {
@@ -37,6 +37,7 @@ function App() {
     localStorage.setItem("item",JSON.stringify(itemList))
   },[itemList])
 
+  
   //to store items in array
   const storeList = () => {
    if(currentItem === ''){
@@ -45,7 +46,7 @@ function App() {
    }
    let key=Date.now()
     setItemList([...itemList, {item : currentItem,key }]);
-    localStorage.setItem("item",currentItem)
+    // localStorage.setItem("item",JSON.stringify(itemList))
   };
 
 
